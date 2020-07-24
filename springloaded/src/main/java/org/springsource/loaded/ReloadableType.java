@@ -678,12 +678,6 @@ public class ReloadableType {
 			catch (Exception e) {
 				s.append("cannot discover $class$groovy$lang$MetaClass " + e.toString() + "  --  ");
 			}
-			try {
-				reflectiveTargets[3] = clazz.getDeclaredField("$staticClassInfo");
-			}
-			catch (Exception e) {
-				s.append("cannot discover $staticClassInfo " + e.toString() + "  --  ");
-			}
 		}
 
 		try {
@@ -703,11 +697,6 @@ public class ReloadableType {
 
 			if (reflectiveTargets[INDEX_METACLASS_FIELD] != null) {
 				f = (Field) reflectiveTargets[2];
-				f.setAccessible(true);
-				f.set(null, null);
-			}
-			if (reflectiveTargets[3] != null) {
-				f = (Field) reflectiveTargets[3];
 				f.setAccessible(true);
 				f.set(null, null);
 			}
